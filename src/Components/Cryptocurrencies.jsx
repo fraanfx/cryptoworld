@@ -24,7 +24,7 @@ const Cryptocurrencies = ({ simplified }) => {
   
 
   useEffect(() => {
-        const filteredData = cryptoList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()) || coin.symbol.toLowerCase().includes(searchTerm.toLowerCase()) || ("$"+coin.symbol).toLowerCase().includes(searchTerm.toLowerCase()) );
+        const filteredData = cryptoList?.data?.coins.filter((coin) => coin.name.toLowerCase().includes(searchTerm.toLowerCase()) || coin.symbol.toLowerCase().includes(searchTerm.toLowerCase()) || ("€"+coin.symbol).toLowerCase().includes(searchTerm.toLowerCase()) );
         setCryptos(filteredData)
       }, [cryptoList, searchTerm] )
       if(isFetching) return <Loader />
@@ -42,7 +42,7 @@ const Cryptocurrencies = ({ simplified }) => {
                 extra={<img className='crypto-image' src={currency.iconUrl}/>}
                 hoverable
               >
-                  <p>Price: {millify(currency.price)}$</p>
+                  <p>Price: {millify(currency.price)}€</p>
                   <p>Market Cap: {millify(currency.marketCap)}</p>
                   <p>Daily Change: {millify(currency.change)}%</p>
                   

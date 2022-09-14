@@ -36,19 +36,19 @@ const CryptoDetails = () => {
 
 
   const stats = [
-    { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
+    { title: 'Price to USD', value: `€ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
-    { title: '24h Volume', value: `$ ${cryptoDetails['24hVolume'] && millify(cryptoDetails['24hVolume'])}`, icon: <ThunderboltOutlined /> },
-    { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
-    { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
+    { title: '24h Volume', value: `€ ${cryptoDetails['24hVolume'] && millify(cryptoDetails['24hVolume'])}`, icon: <ThunderboltOutlined /> },
+    { title: 'Market Cap', value: `€ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
+    { title: 'All-time-high(daily avg.)', value: `€ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
   ];
 
   const genericStats = [
     { title: 'Number Of Markets', value: cryptoDetails?.numberOfMarkets, icon: <FundOutlined /> },
     { title: 'Number Of Exchanges', value: cryptoDetails?.numberOfExchanges, icon: <MoneyCollectOutlined /> },
     { title: 'Aprroved Supply', value: cryptoDetails?.supply?.confirmed ? <CheckOutlined /> : <StopOutlined />, icon: <ExclamationCircleOutlined /> },
-    { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)}`, icon: <ExclamationCircleOutlined /> },
-    { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
+    { title: 'Total Supply', value: `€ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)}`, icon: <ExclamationCircleOutlined /> },
+    { title: 'Circulating Supply', value: `€ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
   console.log(coinHistory)
@@ -59,7 +59,7 @@ const CryptoDetails = () => {
       <Col className="coin-heading-container">
 
         <Title level={2} className="coin-name">
-          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-between', alignItems: 'center' }}> <Avatar src={cryptoDetails.iconUrl} style={{maxWidth: '30px', maxHeight: '30px', margin: 'auto 10px auto 0 '}}/>{cryptoDetails.name} <span style={{'color': cryptoDetails.color}}> ({cryptoDetails.symbol}) </span> $ {millify(cryptoDetails?.price)}</div>
+          <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-between', alignItems: 'center' }}> <Avatar src={cryptoDetails.iconUrl} style={{maxWidth: '30px', maxHeight: '30px', margin: 'auto 10px auto 0 '}}/>{cryptoDetails.name} <span style={{'color': cryptoDetails.color}}> ({cryptoDetails.symbol}) </span> € {millify(cryptoDetails?.price)}</div>
         </Title>
         <p>
           {cryptoDetails.name} live price in US dollars.

@@ -8,7 +8,7 @@ const cryptoApiHeaders = {
 const baseUrl = 'https://coinranking1.p.rapidapi.com/';
 const cryptoParams = 
     {
-        referenceCurrencyUuid: 'yhjMzLPhuIDl',
+        referenceCurrencyUuid: '5k-_VTxqtCEI', //  $ = 'yhjMzLPhuIDl' || € = '5k-_VTxqtCEI'
         timePeriod: '7d',
         'tiers[0]': '1',
         orderBy: 'marketCap',
@@ -33,21 +33,21 @@ export const cryptoApi = createApi({
     endpoints: (builder) => ({
         getCryptos: builder.query({
             query: (count) => createRequest(`/coins?limit=${count}`, {
-                params: { referenceCurrencyUuid: 'yhjMzLPhuIDl'}
+                params: { referenceCurrencyUuid: '5k-_VTxqtCEI'}
             }
             )
         }),
         
         getCryptoDetails: builder.query({
             query: (coinId) => createRequest(`/coin/${coinId}`, {
-                params: { referenceCurrencyUuid: 'yhjMzLPhuIDl'}
+                params: { referenceCurrencyUuid: '5k-_VTxqtCEI'}
             })
         }),
         getCryptoHistory: builder.query({
             query: ({coinId, timePeriod}) => 
             createRequest(`coin/${coinId}/history`
             , {
-                    params: { timePeriod, referenceCurrencyUuid: "yhjMzLPhuIDl"},
+                    params: { timePeriod, referenceCurrencyUuid: "5k-_VTxqtCEI"},
                //createRequest(`coin/${coinId}/history?timeperiod=${timeperiod}`),
                 },
       )}),
