@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Cryptoworld
 
 Check out [Live site](https://fraanfx-cryptoworld.netlify.app/).
 

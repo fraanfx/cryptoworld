@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
+import moment from 'moment';
+
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import { Col, Row, Typography, Select, Avatar } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined  } from '@ant-design/icons';
@@ -20,9 +22,9 @@ getCryptoHistory: builder.query({
 const CryptoDetails = () => {
   
   const { coinId } = useParams();
-  const [timeperiod, setTimePeriod] = useState('7d');
+  const [timePeriod, setTimePeriod] = useState('7d');
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-  const { data: coinHistory } = useGetCryptoHistoryQuery({coinId,timeperiod});
+  const { data: coinHistory } = useGetCryptoHistoryQuery({coinId,timePeriod});
 
   console.log('data')
   console.log(data)
@@ -48,7 +50,7 @@ const CryptoDetails = () => {
     { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && millify(cryptoDetails?.supply?.total)}`, icon: <ExclamationCircleOutlined /> },
     { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
-  console.log(timeperiod)
+
   console.log(coinHistory)
   console.log(cryptoDetails.coinColor)
   return (
@@ -73,8 +75,6 @@ const CryptoDetails = () => {
             >
               {time.map((date) => <Option key={date}>{date}</Option>)}
   </Select>
-  {/*<ChartContainer coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} coinColor={cryptoDetails.color} />*/}
-
            <LineChart coinHistory={coinHistory} currentPrice={millify(cryptoDetails.price)} coinName={cryptoDetails.name} coinColor={cryptoDetails.color} />
     <Col className='all-stats-container'>
       <Col className='stats-container'>

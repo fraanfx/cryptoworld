@@ -9,6 +9,7 @@ const baseUrl = 'https://coinranking1.p.rapidapi.com/';
 const cryptoParams = 
     {
         referenceCurrencyUuid: 'yhjMzLPhuIDl',
+        timePeriod: '7d',
         'tiers[0]': '1',
         orderBy: 'marketCap',
         orderDirection: 'desc',
@@ -43,9 +44,10 @@ export const cryptoApi = createApi({
             })
         }),
         getCryptoHistory: builder.query({
-            query: ({coinId, timeperiod}) => 
-            createRequest(`coin/${coinId}/history`, {
-                    params: { timeperiod: "1y", referenceCurrencyUuid: "yhjMzLPhuIDl"},
+            query: ({coinId, timePeriod}) => 
+            createRequest(`coin/${coinId}/history`
+            , {
+                    params: { timePeriod, referenceCurrencyUuid: "yhjMzLPhuIDl"},
                //createRequest(`coin/${coinId}/history?timeperiod=${timeperiod}`),
                 },
       )}),
