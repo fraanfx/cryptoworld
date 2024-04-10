@@ -2,11 +2,14 @@
     --text-primary:#000;
     --bgPrimary:#fff;
    --bgSecondary: #F9F9F9;
-   --pink: #0071bd;
+   --pink: #1c4367b0;
    --light-blue: #e6f7ff;
    --border: #d9d9d9;
+   --antdBG: #f0f2f5;
 }
-
+.main,.app{
+    background-color: var(--antdBG);
+}
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +21,10 @@ img{
     height: auto;
 }
 a:hover{
-    color: var(--pink) !important;
+    color: var(--pink);
+}
+a.show-more:hover{
+    color: var(--pink);
 }
 
 .app{
@@ -27,13 +33,17 @@ a:hover{
 }
 
 .navbar{
+   min-width: 20vw;
+    position: relative;
     flex: 0.2;
     background-color: rgb(0, 21, 41);
+    z-index: 999;
 }
 
 .main{
     flex: 0.8;
     width: 100%;
+    min-width: 70vw;
     
 }
 .chart-section{
@@ -55,13 +65,22 @@ a:hover{
     padding: 20px;
 }
 .nav-container{
-    position: fixed;
+    min-width: 20vw;
+    /*position: fixed;*/
     left: 0;
-    margin: 10px;
+    /*margin: 10px;*/
     height: 100vh;
-    margin: 0px;
+    /*margin: 0px;*/
+    
     background-color: rgb(0, 21, 41);
 }
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #1c4367b0;
+}
+.ant-menu-dark .ant-menu-item-selected > span > a:hover{
+    color: #fff !important;
+}
+
 
 .logo-container{
     background-color: #001529;
@@ -75,6 +94,10 @@ a:hover{
 }
 .logo a{
    color: white;
+   cursor: pointer;
+}
+.logo a:hover{
+    color: #fff;
 }
 .menu-control-container{
     display: none !important;
@@ -97,6 +120,14 @@ a:hover{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.footer-link{
+    color: #6ba9e4 !important;
+    cursor: pointer;
+}
+.footer-link:hover{
+    color: #83a7c9 !important;
 }
 
 @media screen and (max-width:1300px){
@@ -138,7 +169,7 @@ a:hover{
 
     .main{
         flex: 1;
-        margin-top: 90px;
+        margin-top: 80px;
         margin-left: 0px;
         margin-right: 10px;
     }

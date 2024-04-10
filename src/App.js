@@ -26,9 +26,9 @@ const App = () => {
                 </Layout>
             <div className='footer' level={5} style={{ color: 'white', textAlign: 'center', }}>
                 <Space>
-                   <Link to="/">Home</Link>
-                   <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-                   <Link to="/news">News</Link>
+                   <Link to="/" className='footer-link'>Home</Link>
+                   <Link to="/cryptocurrencies" className='footer-link'>Cryptocurrencies</Link>
+                   <Link to="/news" className='footer-link'>News</Link>
                 </Space>
                 <Typography style={{ color: 'white'}}>
                     All rights reserved {new Date().getFullYear()}
