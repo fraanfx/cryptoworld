@@ -6,16 +6,6 @@ const cryptoApiHeaders = {
 }
 
 const baseUrl = 'https://coinranking1.p.rapidapi.com/';
-const cryptoParams = 
-    {
-        referenceCurrencyUuid: '5k-_VTxqtCEI', //  $ = 'yhjMzLPhuIDl' || € = '5k-_VTxqtCEI'
-        timePeriod: '7d',
-        'tiers[0]': '1',
-        orderBy: 'marketCap',
-        orderDirection: 'desc',
-        limit: '50',
-        offset: '0'
-    }
     
 
 
