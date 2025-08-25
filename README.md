@@ -32,6 +32,8 @@ The **Crypto Price Tracker DApp** provides users with real-time cryptocurrency p
 - Clean and responsive UI with AntDesign components.
 - State management using Redux Toolkit for efficient data handling.
 - Integration with Rapid API for live and historical data.
+- Implementation WAI-ARIA standars to improve user experience of users with disabilities.
+- Implementation of keyboard navigation
 
 ## Getting Started
 
@@ -41,6 +43,7 @@ Follow these steps to set up the project locally and start tracking crypto price
 
 1. **Node.js**: Ensure Node.js is installed. Download it from [nodejs.org](https://nodejs.org/).
 2. **Rapid API Key**: Create an account at [Rapid API](https://rapidapi.com/) and obtain your API key for crypto price data.
+3. **News Data API Key**: Create an account at [News Data API](https://https://newsdata.io/) and obtain your API key for crypto news data.
 
 ### Installation
 
@@ -68,6 +71,12 @@ Follow these steps to set up the project locally and start tracking crypto price
     echo "REACT_APP_RAPID_API_KEY=your_api_key_here" > .env
     ```
 
+5. Add your Rapid API key in the project’s environment variables:
+
+    ```bash
+    echo "REACT_APP_NEWSDATA_API_KEY=your_api_key_here" > .env
+    ```
+
 ## Usage
 
 1. Start the development server:
@@ -87,6 +96,7 @@ Follow these steps to set up the project locally and start tracking crypto price
 - **AntDesign**: Provides UI components for a professional and responsive look.
 - **Chart.js**: Renders interactive and customizable price charts.
 - **Rapid API**: Source for real-time and historical crypto price data.
+- **Rapid API**: Source for recent news related with crypyo.
 
 ## Frontend
 
