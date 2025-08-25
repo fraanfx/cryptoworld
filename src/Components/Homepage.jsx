@@ -18,13 +18,8 @@ const Homepage = () => {
 
   const { data, isFetching } = useGetCryptosQuery(8);
   
-  
-
   const globalStats = data?.data?.stats;
 
-  //console.log(data)
- 
-  //console.log(globalStats)
   if(isFetching) return <Loader />
  
   
@@ -32,8 +27,8 @@ const Homepage = () => {
 
   return (
     <>
-        <Title level={2} className="heading">Global Crypto Stats</Title>
-        <Row>
+        <Title level={2}  className="heading">Global Crypto Stats</Title>
+        <Row >
           <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total} /></Col>
           <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)} /></Col>
           <Col span={12}><Statistic title="Total Market Cap" value={millify(globalStats.totalMarketCap)} /></Col>

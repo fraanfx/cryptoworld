@@ -1,11 +1,12 @@
 import React,  { useState, useEffect} from 'react';
 import { Button, Menu, Typography, Avatar } from 'antd';
 import { Link } from 'react-router-dom';
-import { HomeOutlined, MoneyCollectOutlined, CloseOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
+import { HomeOutlined, CloseOutlined, BulbOutlined, FundOutlined, MenuOutlined } from '@ant-design/icons'
 
 
 import icon from '../images/cryptocurrency.png';
 const Navbar = () => {
+    const breakpoint = 768
     const [activeMenu, setActiveMenu] = useState(true); 
     const [screenSize, setScreenSize] = useState(null); 
     
@@ -13,10 +14,13 @@ const Navbar = () => {
 
     const changeSection = () => {
         scrollToTop()
-        if(screenSize < 768){
+        if(screenSize < breakpoint){
             setActiveMenu(false)
         }
     }
+
+
+ 
 
     useEffect(()=> {
             const handleResize = () => setScreenSize(window.innerWidth);
@@ -27,7 +31,7 @@ const Navbar = () => {
     },[])
     
     useEffect(()=> {
-        if(screenSize < 768){
+        if(screenSize < breakpoint){
             setActiveMenu(false);
         } else {
             setActiveMenu(true);
@@ -39,11 +43,11 @@ const Navbar = () => {
         <div style={{'position' : 'fixed','display' : 'block' }}>
         <div className='nav-container' style={{'position' : 'fixed'}}>
             <div className='logo-container'>
-                <Avatar src={icon} size="large"/>
+                <Avatar src={icon} alt='Cryptoworld logo' size="large"/>
                 <Typography.Title level={2} style={{marginBottom: '0px'}}className="logo">
                     <Link to="/">Cryptoworld</Link>
                 </Typography.Title>
-                <Button theme='dark' style={{backgroundColor: '#001529'}}  className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
+                <Button  theme='dark' style={{backgroundColor: '#001529'}}  className='menu-control-container' onClick={() => setActiveMenu(!activeMenu)}>
                     {activeMenu ? <CloseOutlined /> : <MenuOutlined />}
                 </Button>
             </div>
@@ -54,15 +58,16 @@ const Navbar = () => {
                             style={{
                                 padding: '15px 0',
                             }}
+                            tabIndex={-1}
                         >
-                        <Menu.Item icon={<HomeOutlined />} onClick={() => changeSection()} key="Home">
-                            <Link to="/">Home</Link>
+                        <Menu.Item   icon={<HomeOutlined />} onClick={() => changeSection()} key="Home">
+                            <Link tabIndex={ screenSize > breakpoint ? activeMenu ? 0 : -1 : 0}  to="/">Home</Link>
                         </Menu.Item>
                         <Menu.Item icon={<FundOutlined />} onClick={() => changeSection()} key="Cryptos">
-                            <Link to="/cryptocurrencies">Cryptocurrencies</Link>
+                            <Link  tabIndex={ screenSize > breakpoint ? activeMenu ? 0 : -1 : 0}  to="/cryptocurrencies">Cryptocurrencies</Link>
                         </Menu.Item>
-                        <Menu.Item icon={<BulbOutlined />} onClick={() => changeSection()} key="News">
-                            <Link to="/news">News</Link>
+                        <Menu.Item  icon={<BulbOutlined />} onClick={() => changeSection()} key="News">
+                            <Link tabIndex={ screenSize > breakpoint ? activeMenu ? 0 : -1 : 0}   to="/news">News</Link>
                         </Menu.Item>
                     </Menu> 
                 )}

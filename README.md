@@ -4,7 +4,7 @@
 
 Application built with React and leveraging modern web technologies to visualize real-time and historical crypto prices.
 
-Welcome to the **Crypto Price Tracker** project repository! This  application is built with **React JS**, utilizing **Redux Toolkit**, **AntDesign**, **ChartJS**, and **Rapid API** to display current and historical price data for various cryptocurrencies.
+Welcome to the **Crypto Price Tracker** project repository! This  application is built with **React JS**, utilizing **Redux Toolkit**, **AntDesign**, **ChartJS**, and ** API** to display current and historical price data for various cryptocurrencies.
 
 Check out [Live site](https://fraanfx-cryptoworld.netlify.app/).
 

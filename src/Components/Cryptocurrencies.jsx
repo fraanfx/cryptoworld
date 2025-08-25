@@ -13,14 +13,6 @@ const Cryptocurrencies = ({ simplified }) => {
   const {data: cryptoList, isFetching } = useGetCryptosQuery(count);
   const [ cryptos, setCryptos ] = useState(cryptoList?.data?.coins);
   const [searchTerm, setSearchTerm] = useState('')
-
-  //console.log(isFetching)
-  //console.log('isFetching')
-
-
-  
- 
-
   
 
   useEffect(() => {
@@ -34,12 +26,12 @@ const Cryptocurrencies = ({ simplified }) => {
               <Input placeholder='Search Cryptocurrency' onChange={(e) => setSearchTerm(e.target.value)}/>
             </div>)}
       <Row gutter={[32, 32]} className="crypto-card-container">
-        {cryptos?.map((currency) => (
-          <Col xs={24} sm={12} lg={6}  className="crypto-card" key={currency.id}>
-            <Link to={`/crypto/${currency.uuid}`}>
-              <Card 
+        {cryptos?.map((currency, idx) => (
+          <Col xs={24} sm={12} lg={6}  className="crypto-card" key={idx}>
+            <Link  to={`/crypto/${currency.uuid}`}>
+              <Card
                 title={`${currency.rank}.${currency.name}`}
-                extra={<img className='crypto-image' src={currency.iconUrl}/>}
+                extra={<img className='crypto-image' alt={`Logo ${currency.name}`} src={currency.iconUrl}/>}
                 hoverable
               >
                   <p>Price: {millify(currency.price)}€</p>

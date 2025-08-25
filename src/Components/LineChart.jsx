@@ -21,8 +21,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
 
     coinPrice.reverse()
     coinTimestamp.reverse()
-    console.log('esto es')
-    console.log(coinColor)
     const data = {
         labels: coinTimestamp,
         datasets: [
@@ -57,7 +55,6 @@ const LineChart = ({ coinHistory, currentPrice, coinName, coinColor }) => {
         }
     }
 
-    // console.log(coinHistory, coinPrice, coinTimestamp)
 
     return (
         <>

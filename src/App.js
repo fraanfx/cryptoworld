@@ -1,10 +1,8 @@
-import React from 'react'
 import { Routes, Route, Link } from 'react-router-dom';
 import { Layout, Typography, Space } from 'antd';
 
 import { Navbar, Homepage, Cryptocurrencies, CryptoDetails, News} from './Components';
 import './App.css'
-import Tests from './Components/Tests';
 
 const App = () => {
     return(

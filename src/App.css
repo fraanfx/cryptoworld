@@ -296,10 +296,11 @@ a.show-more:hover{
 
 .coin-desc{
     flex: 0.5;
+    align-content: baseline;
 }
 
 .coin-links{
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
     flex: 0.5;
 }
 
@@ -308,7 +309,7 @@ a.show-more:hover{
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--border);
-    padding: 20px;
+    padding: 20px 0;
 }
 
 .link-name{
@@ -361,25 +362,47 @@ a.show-more:hover{
 .news-image-container{
     display: flex !important;
     justify-content: space-between !important;
+    aspect-ratio: 16/9;
+    overflow: hidden;
 }
 .news-title{
-width: 70%;
+    width: 100%;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-clamp: 2;
+  box-orient: vertical;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
-.news-image-container .img{
-    width:100px;
-    height:100px;
+.news-image-container > img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .news-card p{
     color: black;
     margin: 10px 0px !important;
+    min-height: 65px;
 }
 .provider-container{
     display: flex;
     justify-content: space-between;
+    margin-top: 5px;
+}
+.provider-container > div {
+    display: flex;
+    align-items: center;
 }
 .provider-name{
     margin-left: 10px;
+}
+
+.ant-typography.align-right{
+    float: right;
 }
 
 .chart-header{
@@ -440,4 +463,27 @@ width: 70%;
     flex-direction: column;
     padding: 20px;
     align-items: center;
+}
+
+button:focus-visible,
+div:focus-visible,
+input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 150, 255, 0.3); 
+  border-radius: 0px; 
+  transition: box-shadow 0.2s ease;
+}
+a:focus-within .ant-card{
+    outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 150, 255, 0.5); 
+  transition: box-shadow 0.2s ease;
+}
+a:focus-visible .ant-card{
+    outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 150, 255, 0.5); 
+  transition: box-shadow 0.2s ease;
+}
+a:focus-visible{
+    box-shadow: 0 0 0 3px rgba(0, 150, 255, 0.5); 
+  transition: box-shadow 0.2s ease; 
 }

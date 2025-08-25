@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import HTMLReactParser from 'html-react-parser';
 import { useParams } from 'react-router-dom';
 import millify from 'millify';
-import moment from 'moment';
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../services/cryptoApi';
 import { Col, Row, Typography, Select, Avatar } from 'antd';
 import { MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined  } from '@ant-design/icons';
-import ChartContainer from  './ChartContainer'
 import LineChart from './LineChart';
 import Loader from './Loader';
 
@@ -26,8 +24,6 @@ const CryptoDetails = () => {
   const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
   const { data: coinHistory } = useGetCryptoHistoryQuery({coinId,timePeriod});
 
-  console.log('data')
-  console.log(data)
   const cryptoDetails = data?.data?.coin;
 
   if(isFetching) return <Loader />
@@ -51,8 +47,7 @@ const CryptoDetails = () => {
     { title: 'Circulating Supply', value: `€ ${cryptoDetails?.supply?.circulating && millify(cryptoDetails?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
   ];
 
-  console.log(coinHistory)
-  console.log(cryptoDetails.coinColor)
+
   return (
     
     <Col className="coin-detail-container">
@@ -87,7 +82,7 @@ const CryptoDetails = () => {
                 An overview showing the stats of {cryptoDetails.name}
               </p>
             </Col>
-            { console.log(stats) }
+       
             {stats.map(({ icon, title, value, idx}) => (
 
               <Col className='coin-stats' key={idx}>
@@ -113,7 +108,6 @@ const CryptoDetails = () => {
                 An overview showing the stats of all cryptocurrencies.
               </p>
             </Col>
-            {console.log(genericStats)}
             {genericStats.map(({ icon, title, value, idx}) => (
               <Col className='coin-stats' key={idx}>
                   <Col className='coin-stats-name'>
